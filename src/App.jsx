@@ -1,6 +1,9 @@
 // App.jsx
 import React, { useState, useEffect, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+// import Memo from "./components/ReactMemo";
+import LargeArraySum from "./components/Usememo";
+import ItemsList from "./components/List";
 
 const App = () => {
   // const [HomePage, setHomePage] = useState(null);
@@ -32,31 +35,35 @@ const App = () => {
     );
   }; */
   return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              {/* <Link to="/" onClick={loadHomePage}>
+    <>
+      {/*  <Memo /> */}
+      {/* <LargeArraySum /> */}
+      <ItemsList />
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                {/* <Link to="/" onClick={loadHomePage}>
                 Home
               </Link> */}
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              {/*} <Link to="/about" onClick={loadAboutPage}>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                {/*} <Link to="/about" onClick={loadAboutPage}>
                 About
               </Link> */}
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              {/* <Link to="/contact" onClick={loadContactPage}>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                {/* <Link to="/contact" onClick={loadContactPage}>
                 Contact
               </Link> */}
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>{" "}
-        {/* <Routes>
+                <Link to="/contact">Contact</Link>
+              </li>
+            </ul>
+          </nav>{" "}
+          {/* <Routes>
           <Route
             path="/"
             element={HomePage ? <HomePage /> : <div>Loading...</div>}
@@ -70,15 +77,16 @@ const App = () => {
             element={ContactPage ? <ContactPage /> : <div>Loading...</div>}
           /> 
         </Routes> */}
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
-        </Suspense>
-      </div>
-    </Router>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+            </Routes>
+          </Suspense>
+        </div>
+      </Router>
+    </>
   );
 };
 export default App;
